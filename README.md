@@ -27,7 +27,7 @@ Name of feature: city explorer api (server)
 
 Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 1315
 
 Finish time: _____
 
