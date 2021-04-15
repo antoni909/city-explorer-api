@@ -23,12 +23,12 @@ Custom Servers with Node and Express
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Name of feature: city explorer api (server)
+Name of feature: weather bit api
 
-Estimate of time needed to complete: 2 hours
+Estimate of time needed to complete: 5 hours
 
-Start time: 1315
+Start time: 1115
 
-Finish time: _____
+Finish time: 1532
 
-Actual time needed to complete: _____
+Actual time needed to complete: 4.8 hours
