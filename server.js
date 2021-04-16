@@ -19,6 +19,7 @@ app.get( '/weather', ( request, response ) => {
   // pass params from front end for lat and lon based on city searched
   // setup consts for superagent
   // const requestedQuery = request.query
+
   const query = {
     lat: request.query.lat,
     lon: request.query.lon,
@@ -38,32 +39,24 @@ app.get( '/weather', ( request, response ) => {
     });
 });
 
-// base url
-// https://api.themoviedb.org/3/search/movie
-
-// query params: api key, query
-// https://api.themoviedb.org/3/search/movie?api_key=7da92528f88d7ced5a0ecd25f1d5f992&query=seattle
-
 app.get('/movies', (request,response) => {
 
   // city is hardcoded need the property passed from front end
-  // console.log('request.query',request.query);
+  console.log('request.query',request.query.citySearchTextField);
 
-  const city = 'yuma';
   const url = 'https://api.themoviedb.org/3/search/movie';
+
   const query = {
     api_key: process.env.REACT_APP_MOVIE_API_KEY,
-    query: city,
+    query: request.query.citySearchTextField,
   };
 
   superagent
-    // .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&query=seattle`)
-    .get(url)
-    .query(query)
+    .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&query=${request.query.citySearchTextField}`)
+    // .get(url)
+    // .query(query)
     .then( dataObject => {
-
-      // console.log('results.body: ',dataObject.body.results);
-
+      console.log('results.body: ',dataObject.body);
       // dataObject.body.results is an array of objects, map here
       response.status(200).send(dataObject.body.results
         .map( movie => new RelatedMovies( movie ) ));
